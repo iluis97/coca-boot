@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cn.luis.coca</groupId>
+    <artifactId>coca-boot-bom-2.6</artifactId>
+    <version>2.6.13</version>
+
+    <packaging>pom</packaging>
+
+    <properties>
+        <java.version>8</java.version>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+
+    <description>BOM For Coca Artifacts</description>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>cn.luis.coca</groupId>
+                <artifactId>coca-boot-depend-2.6</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.luis.coca</groupId>
+                <artifactId>coca-boot-core-2.6</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.luis.coca</groupId>
+                <artifactId>coca-boot-jackson-2.6</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.luis.coca</groupId>
+                <artifactId>coca-boot-log-2.6</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.luis.coca</groupId>
+                <artifactId>coca-boot-util-2.6</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.luis.coca</groupId>
+                <artifactId>coca-boot-starter-dubbo-nacos-2.6</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.luis.coca</groupId>
+                <artifactId>coca-boot-starter-oss-2.6</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>

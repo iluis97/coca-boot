@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cn.luis.coca</groupId>
+    <artifactId>coca-boot-bom-3.2</artifactId>
+    <version>3.2.2</version>
+
+    <packaging>pom</packaging>
+
+    <properties>
+        <java.version>21</java.version>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <coca-boot-depend-2.6.version>2.6.13</coca-boot-depend-2.6.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>cn.luis.coca</groupId>
+                <artifactId>coca-boot-depend-3.2</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.luis.coca</groupId>
+                <artifactId>coca-boot-starter-dubbo-nacos-3.2</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.luis.coca</groupId>
+                <artifactId>coca-boot-core-2.6</artifactId>
+                <version>${coca-boot-depend-2.6.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.luis.coca</groupId>
+                <artifactId>coca-boot-jackson-2.6</artifactId>
+                <version>${coca-boot-depend-2.6.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.luis.coca</groupId>
+                <artifactId>coca-boot-log-2.6</artifactId>
+                <version>${coca-boot-depend-2.6.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.luis.coca</groupId>
+                <artifactId>coca-boot-util-2.6</artifactId>
+                <version>${coca-boot-depend-2.6.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
