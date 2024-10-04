@@ -7,53 +7,53 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-parent</artifactId>
-        <version>2.6.13</version>
+        <version>3.2.2</version>
         <relativePath/>
     </parent>
 
     <groupId>cn.luis.coca</groupId>
     <artifactId>coca-boot-depend</artifactId>
-    <version>2.6.13</version>
+    <version>3.2.2</version>
 
     <packaging>pom</packaging>
 
-    <description>Coca Dependencies 2.6.x</description>
+    <description>Coca Dependencies 3.2.x</description>
     <!--毕业版本依赖关系(推荐使用)-->
     <url>https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E</url>
 
     <properties>
-        <java.version>8</java.version>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
+        <java.version>21</java.version>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- 统一依赖管理 -->
-        <spring-boot.version>2.6.13</spring-boot.version>
-        <spring-cloud.version>2021.0.5</spring-cloud.version>
-        <spring-cloud-alibaba.version>2021.0.5.0</spring-cloud-alibaba.version>
+        <spring-boot.version>3.2.2</spring-boot.version>
+        <spring-cloud.version>2023.0.0</spring-cloud.version>
+        <spring-cloud-alibaba.version>2022.0.0.0</spring-cloud-alibaba.version>
         <dubbo.version>3.2.10</dubbo.version>
 
         <!-- db -->
         <!-- 引自mybatis-starter -->
-        <mysql.version>8.0.33</mysql.version>
-        <mybatis.version>3.5.9</mybatis.version>
-        <mybatis-starter.version>2.2.2</mybatis-starter.version>
-        <mybatis-plus.version>3.5.1</mybatis-plus.version>
+        <mysql.version>8.3.0</mysql.version>
+        <mybatis.version>3.5.14</mybatis.version>
+        <mybatis-starter.version>3.0.3</mybatis-starter.version>
+        <mybatis-plus.version>3.5.5</mybatis-plus.version>
 
         <!-- cache -->
         <!--redisson-spring-data与Spring Boot version的版本对应关系-->
         <!--https://github.com/redisson/redisson/blob/master/redisson-spring-boot-starter/README.md-->
-        <redisson-starter.version>3.16.8</redisson-starter.version>
+        <redisson-starter.version>3.30.0</redisson-starter.version>
 
         <!--DTO转换-->
         <mapstruct.version>1.5.5.Final</mapstruct.version>
 
         <!-- utils -->
-        <commons-io.version>2.13.0</commons-io.version>
-        <commons-collections4.version>4.4</commons-collections4.version>
-        <guava.version>32.1.2-jre</guava.version>
-        <hutool.version>5.8.21</hutool.version>
+        <commons-io.version>2.16.1</commons-io.version>
+        <commons-collections4.version>4.5.0-M2</commons-collections4.version>
+        <guava.version>33.2.1-jre</guava.version>
+        <hutool.version>5.8.28</hutool.version>
     </properties>
 
     <dependencyManagement>
@@ -91,7 +91,7 @@
             </dependency>
             <dependency>
                 <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
             </dependency>
 
@@ -144,37 +144,19 @@
     </dependencyManagement>
 
     <build>
-        <pluginManagement>
-            <plugins>
-                <!--创建当前项目源文件的JAR [module-name]-sources.jar-->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-source-plugin</artifactId>
-                    <version>3.3.1</version>
-                    <executions>
-                        <execution>
-                            <id>attach-sources</id>
-                            <goals>
-                                <goal>jar</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-            </plugins>
-        </pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.11.0</version>
                 <configuration>
-                    <source>8</source>
-                    <target>8</target>
+                    <source>21</source>
+                    <target>21</target>
                     <annotationProcessorPaths>
                         <path>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
-                            <version>1.18.24</version>
+                            <version>1.18.30</version>
                         </path>
                         <path>
                             <groupId>org.mapstruct</groupId>
@@ -188,7 +170,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>2.6.13</version>
+                <version>3.2.2</version>
             </plugin>
 
             <plugin>
