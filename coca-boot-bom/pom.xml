@@ -57,6 +57,11 @@
                 <artifactId>coca-boot-starter-oss</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>cn.luis.coca</groupId>
+                <artifactId>coca-boot-starter-data-db</artifactId>
+                <version>${project.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

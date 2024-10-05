@@ -5,7 +5,11 @@ import cn.luis.coca.boot.core.dto.FileUploadDTO;
 import cn.luis.coca.boot.core.enums.ContentTypeEnum;
 import cn.luis.coca.boot.starter.oss.client.OssClient;
 import com.amazonaws.services.s3.AmazonS3;
-import com.amazonaws.services.s3.model.*;
+import com.amazonaws.services.s3.model.DeleteObjectsRequest;
+import com.amazonaws.services.s3.model.ObjectMetadata;
+import com.amazonaws.services.s3.model.PutObjectRequest;
+import com.amazonaws.services.s3.model.PutObjectResult;
+import com.amazonaws.services.s3.model.S3Object;
 import com.amazonaws.util.IOUtils;
 import lombok.RequiredArgsConstructor;
 
