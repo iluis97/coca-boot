@@ -26,6 +26,7 @@
         <module>coca-boot-starter-dubbo-nacos</module>
         <module>coca-boot-starter-oss</module>
         <module>coca-boot-starter-data-db</module>
+        <module>coca-boot-spring-extend</module>
     </modules>
 
     <properties>
