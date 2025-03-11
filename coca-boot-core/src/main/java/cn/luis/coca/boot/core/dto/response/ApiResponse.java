@@ -27,7 +27,10 @@ public class ApiResponse<T> implements Serializable {
     private final boolean success;
 
     /**
-     * 消息类型
+     * 消息类型, 其实放在这里并不灵活，应该放到data中，每条数据可能有不同类型
+     * 目前仅标识返回的全部数据的类型
+     *
+     * @see MessageTypeEnum
      */
     private final String messageType;
 
@@ -106,19 +109,19 @@ public class ApiResponse<T> implements Serializable {
     @AllArgsConstructor
     private enum MessageTypeEnum {
         /**
-         * 绿色
+         * 成功, 绿色
          */
         SUCCESS("success"),
         /**
-         * 黄色
+         * 警告, 黄色
          */
         WARN("warn"),
         /**
-         * 灰色
+         * 提示, 灰色
          */
         INFO("info"),
         /**
-         * 红色
+         * 异常, 红色
          */
         ERROR("error");
 
