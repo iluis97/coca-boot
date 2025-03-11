@@ -1,6 +1,7 @@
 package cn.luis.coca.boot.core.dto.response;
 
 import cn.luis.coca.boot.core.enums.code.ResponseCodeDescIEnum;
+import cn.luis.coca.boot.core.exception.BaseException;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
@@ -77,20 +78,28 @@ public class ApiResponse<T> implements Serializable {
         return new ApiResponse<>(true, MessageTypeEnum.SUCCESS, ResponseCodeDescIEnum.OK, message, null);
     }
 
-    public static <T> ApiResponse<T> warn(T data, String errorMessage) {
-        return new ApiResponse<>(true, MessageTypeEnum.WARN, ResponseCodeDescIEnum.OK, errorMessage, data);
+    public static <T> ApiResponse<T> warn(T data, String warnMessage) {
+        return new ApiResponse<>(true, MessageTypeEnum.WARN, ResponseCodeDescIEnum.OK, warnMessage, data);
     }
 
-    public static <T> ApiResponse<T> warn(String errorMessage) {
-        return new ApiResponse<>(true, MessageTypeEnum.WARN, ResponseCodeDescIEnum.OK, errorMessage, null);
+    public static <T> ApiResponse<T> warnMessage(String warnMessage) {
+        return new ApiResponse<>(true, MessageTypeEnum.WARN, ResponseCodeDescIEnum.OK, warnMessage, null);
     }
 
     public static ApiResponse<Void> errorMessage(String errorMessage) {
         return new ApiResponse<>(false, MessageTypeEnum.ERROR, ResponseCodeDescIEnum.FAIL, errorMessage, null);
     }
 
-    public static ApiResponse<Void> errorMessage(ResponseCodeDescIEnum responseCodeDesc) {
+    public static ApiResponse<Void> error(ResponseCodeDescIEnum responseCodeDesc) {
         return new ApiResponse<>(false, MessageTypeEnum.ERROR, responseCodeDesc, null);
+    }
+
+    public static ApiResponse<Void> error(BaseException baseException) {
+        return new ApiResponse<>(false, MessageTypeEnum.ERROR, baseException.getCode(), baseException.getDesc(), null);
+    }
+
+    public static ApiResponse<Void> error(RuntimeException runtimeException) {
+        return new ApiResponse<>(false, MessageTypeEnum.ERROR, ResponseCodeDescIEnum.FAIL, runtimeException.getMessage(), null);
     }
 
     @Getter
