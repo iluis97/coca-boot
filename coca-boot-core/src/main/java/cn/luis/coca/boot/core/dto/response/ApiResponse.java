@@ -24,7 +24,7 @@ public class ApiResponse<T> implements Serializable {
     /**
      * 是否请求成功
      */
-    private final boolean success;
+    private final Boolean success;
 
     /**
      * 消息类型, 其实放在这里并不灵活，应该放到data中，每条数据可能有不同类型
