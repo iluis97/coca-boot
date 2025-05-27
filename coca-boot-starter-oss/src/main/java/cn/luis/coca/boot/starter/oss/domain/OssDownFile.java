@@ -1,4 +1,4 @@
-package cn.luis.coca.boot.core.dto;
+package cn.luis.coca.boot.starter.oss.domain;
 
 import cn.luis.coca.boot.core.base.StandardHttpHeaders;
 import lombok.Getter;
@@ -18,7 +18,7 @@ import java.util.Map;
 @Setter
 @Getter
 @ToString
-public class FileDownDTO implements Serializable {
+public class OssDownFile implements Serializable {
 
     private static final long serialVersionUID = 4926558333503203471L;
 
@@ -26,7 +26,7 @@ public class FileDownDTO implements Serializable {
     private byte[] file;
     private ObjectMetadata objectMetadata;
 
-    public FileDownDTO(String fileName, byte[] file, ObjectMetadata objectMetadata) {
+    public OssDownFile(String fileName, byte[] file, ObjectMetadata objectMetadata) {
         this.fileName = fileName;
         this.file = file;
         this.objectMetadata = objectMetadata;

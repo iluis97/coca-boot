@@ -1,6 +1,6 @@
 package cn.luis.coca.boot.core.exception;
 
-import cn.luis.coca.boot.core.enums.code.ResponseCodeDescIEnum;
+import cn.luis.coca.boot.core.enums.code.ResponseIEnum;
 import lombok.Getter;
 
 /**
@@ -11,23 +11,23 @@ import lombok.Getter;
  * created 2022/2/17 9:35
  */
 @Getter
-public abstract class BaseException extends RuntimeException implements ResponseCodeDescIEnum {
+public abstract class BaseException extends RuntimeException implements ResponseIEnum {
 
     private static final long serialVersionUID = -6462976541406465434L;
 
-    protected final ResponseCodeDescIEnum responseCodeDesc;
+    protected final ResponseIEnum responseCodeDesc;
 
     protected BaseException(RuntimeException ex) {
         super(ex.getMessage(), ex);
-        this.responseCodeDesc = ResponseCodeDescIEnum.respFail();
+        this.responseCodeDesc = ResponseIEnum.respFail();
     }
 
-    protected BaseException(ResponseCodeDescIEnum responseCodeDesc) {
+    protected BaseException(ResponseIEnum responseCodeDesc) {
         super(responseCodeDesc.getDesc());
         this.responseCodeDesc = responseCodeDesc;
     }
 
-    protected BaseException(ResponseCodeDescIEnum responseCodeDesc, RuntimeException ex) {
+    protected BaseException(ResponseIEnum responseCodeDesc, RuntimeException ex) {
         super(responseCodeDesc.getDesc(), ex);
         this.responseCodeDesc = responseCodeDesc;
     }

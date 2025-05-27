@@ -1,6 +1,6 @@
 package cn.luis.coca.boot.core.exception;
 
-import cn.luis.coca.boot.core.enums.code.ResponseCodeDescIEnum;
+import cn.luis.coca.boot.core.enums.code.ResponseIEnum;
 import lombok.Getter;
 
 /**
@@ -9,7 +9,7 @@ import lombok.Getter;
  * @author luis
  */
 @Getter
-public final class ErrorMessage implements ResponseCodeDescIEnum {
+public final class ErrorMessage implements ResponseIEnum {
 
     private String code;
     private String desc;

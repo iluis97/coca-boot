@@ -5,4 +5,4 @@
  * @version 1.0
  * @since 1.0
  */
-package cn.luis.coca.boot.core.dto.response;
+package cn.luis.coca.boot.core.web;

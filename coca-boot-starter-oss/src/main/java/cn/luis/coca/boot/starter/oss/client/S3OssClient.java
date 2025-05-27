@@ -1,7 +1,7 @@
 package cn.luis.coca.boot.starter.oss.client;
 
-import cn.luis.coca.boot.core.dto.FileDownDTO;
-import cn.luis.coca.boot.core.dto.FileUploadDTO;
+import cn.luis.coca.boot.starter.oss.domain.OssDownFile;
+import cn.luis.coca.boot.starter.oss.domain.OssUploadFile;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 
 import java.io.IOException;
@@ -59,9 +59,9 @@ interface S3OssClient {
      * @param fileFolder  /a/b/
      * @param fileName    c.txt
      * @param inputStream 文件流
-     * @return FileUploadDTO
+     * @return OssUploadFile
      */
-    FileUploadDTO upload(String bucketName, String fileFolder, String fileName, InputStream inputStream) throws IOException;
+    OssUploadFile upload(String bucketName, String fileFolder, String fileName, InputStream inputStream) throws IOException;
 
     /**
      * @param bucketName     存储桶名称
@@ -69,9 +69,9 @@ interface S3OssClient {
      * @param fileName       c.txt
      * @param inputStream    文件流
      * @param objectMetadata 文件元数据 [一般要设置 setContentType、setContentDisposition] {@link #upload(String, String, String, InputStream)}
-     * @return FileUploadDTO
+     * @return OssUploadFile
      */
-    FileUploadDTO upload(String bucketName, String fileFolder, String fileName, InputStream inputStream, ObjectMetadata objectMetadata) throws IOException;
+    OssUploadFile upload(String bucketName, String fileFolder, String fileName, InputStream inputStream, ObjectMetadata objectMetadata) throws IOException;
 
     /**
      * 获取存储对象
@@ -80,5 +80,5 @@ interface S3OssClient {
      * @param fileKey    aka fileFolder+fileName
      * @return 存储对象
      */
-    FileDownDTO down(String bucketName, String fileKey) throws IOException;
+    OssDownFile down(String bucketName, String fileKey) throws IOException;
 }

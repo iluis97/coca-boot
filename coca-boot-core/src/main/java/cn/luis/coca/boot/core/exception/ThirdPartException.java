@@ -1,7 +1,7 @@
 package cn.luis.coca.boot.core.exception;
 
-import cn.luis.coca.boot.core.enums.AliErrorCodeDescIEnum;
-import cn.luis.coca.boot.core.enums.code.ResponseCodeDescIEnum;
+import cn.luis.coca.boot.core.enums.AliErrorIEnum;
+import cn.luis.coca.boot.core.enums.code.ResponseIEnum;
 
 /**
  * 第三方异常
@@ -15,14 +15,14 @@ public class ThirdPartException extends BaseException {
     private static final long serialVersionUID = 7456374730637231241L;
 
     protected ThirdPartException(RuntimeException ex) {
-        super(AliErrorCodeDescIEnum.SERVICE_ERROR_C0001, ex);
+        super(AliErrorIEnum.SERVICE_ERROR_C0001, ex);
     }
 
-    protected ThirdPartException(ResponseCodeDescIEnum responseCodeDesc) {
+    protected ThirdPartException(ResponseIEnum responseCodeDesc) {
         super(responseCodeDesc);
     }
 
-    protected ThirdPartException(ResponseCodeDescIEnum responseCodeDesc, RuntimeException ex) {
+    protected ThirdPartException(ResponseIEnum responseCodeDesc, RuntimeException ex) {
         super(responseCodeDesc, ex);
     }
 }

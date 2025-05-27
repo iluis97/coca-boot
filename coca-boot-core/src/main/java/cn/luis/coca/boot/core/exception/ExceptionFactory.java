@@ -1,6 +1,6 @@
 package cn.luis.coca.boot.core.exception;
 
-import cn.luis.coca.boot.core.enums.code.ResponseCodeDescIEnum;
+import cn.luis.coca.boot.core.enums.code.ResponseIEnum;
 
 /**
  * 异常工厂实现、统一管理
@@ -26,11 +26,11 @@ public class ExceptionFactory {
         return new ThirdPartException(ErrorMessage.errorOfMessage(message), ex);
     }
 
-    public static ThirdPartException thirdPartException(ResponseCodeDescIEnum responseCodeDesc) {
+    public static ThirdPartException thirdPartException(ResponseIEnum responseCodeDesc) {
         return new ThirdPartException(responseCodeDesc);
     }
 
-    public static ThirdPartException thirdPartException(ResponseCodeDescIEnum responseCodeDesc, RuntimeException ex) {
+    public static ThirdPartException thirdPartException(ResponseIEnum responseCodeDesc, RuntimeException ex) {
         return new ThirdPartException(responseCodeDesc, ex);
     }
 
@@ -49,11 +49,11 @@ public class ExceptionFactory {
         return new UserException(ErrorMessage.errorOfMessage(message), ex);
     }
 
-    public static UserException userException(ResponseCodeDescIEnum responseCodeDesc) {
+    public static UserException userException(ResponseIEnum responseCodeDesc) {
         return new UserException(responseCodeDesc);
     }
 
-    public static UserException userException(ResponseCodeDescIEnum responseCodeDesc, RuntimeException ex) {
+    public static UserException userException(ResponseIEnum responseCodeDesc, RuntimeException ex) {
         return new UserException(responseCodeDesc, ex);
     }
 
@@ -73,11 +73,11 @@ public class ExceptionFactory {
         return new BizException(ErrorMessage.errorOfMessage(message), ex);
     }
 
-    public static BizException bizException(ResponseCodeDescIEnum responseCodeDesc) {
+    public static BizException bizException(ResponseIEnum responseCodeDesc) {
         return new BizException(responseCodeDesc);
     }
 
-    public static BizException bizException(ResponseCodeDescIEnum responseCodeDesc, RuntimeException ex) {
+    public static BizException bizException(ResponseIEnum responseCodeDesc, RuntimeException ex) {
         return new BizException(responseCodeDesc, ex);
     }
 
@@ -96,11 +96,11 @@ public class ExceptionFactory {
         return new SysException(ErrorMessage.errorOfMessage(message), ex);
     }
 
-    public static SysException sysException(ResponseCodeDescIEnum responseCodeDesc) {
+    public static SysException sysException(ResponseIEnum responseCodeDesc) {
         return new SysException(responseCodeDesc);
     }
 
-    public static SysException sysException(ResponseCodeDescIEnum responseCodeDesc, RuntimeException ex) {
+    public static SysException sysException(ResponseIEnum responseCodeDesc, RuntimeException ex) {
         return new SysException(responseCodeDesc, ex);
     }
 

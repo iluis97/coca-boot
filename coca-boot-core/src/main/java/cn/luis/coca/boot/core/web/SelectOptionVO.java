@@ -1,4 +1,4 @@
-package cn.luis.coca.boot.core.dto.response;
+package cn.luis.coca.boot.core.web;
 
 import java.io.Serializable;
 import java.util.LinkedHashMap;

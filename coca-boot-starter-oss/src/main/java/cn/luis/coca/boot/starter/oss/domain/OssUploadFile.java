@@ -1,4 +1,4 @@
-package cn.luis.coca.boot.core.dto;
+package cn.luis.coca.boot.starter.oss.domain;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -16,7 +16,7 @@ import java.io.Serializable;
 @Setter
 @Getter
 @ToString
-public class FileUploadDTO implements Serializable {
+public class OssUploadFile implements Serializable {
 
     private static final long serialVersionUID = 4926558333503203470L;
 
@@ -24,10 +24,10 @@ public class FileUploadDTO implements Serializable {
     private String fileName;
     private String url;
 
-    public FileUploadDTO() {
+    public OssUploadFile() {
     }
 
-    public FileUploadDTO(String id, String fileName, String url) {
+    public OssUploadFile(String id, String fileName, String url) {
         this.id = id;
         this.fileName = fileName;
         this.url = url;
