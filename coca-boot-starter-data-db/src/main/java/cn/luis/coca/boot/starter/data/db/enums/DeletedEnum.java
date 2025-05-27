@@ -8,7 +8,7 @@ import lombok.Getter;
  */
 @Getter
 @AllArgsConstructor
-public enum DeleteFlagEnum {
+public enum DeletedEnum {
 
     NO(0), YES(1);
 

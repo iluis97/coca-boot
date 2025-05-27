@@ -3,8 +3,6 @@ package cn.luis.coca.boot.starter.data.db.entity;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.io.Serial;
-import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
@@ -12,9 +10,8 @@ import java.time.LocalDateTime;
  */
 @Getter
 @Setter
-public abstract class BaseAuditVersionEntity implements DbEntity, Serializable {
+public abstract class BaseAuditVersionEntity implements DbEntity {
 
-    @Serial
     private static final long serialVersionUID = 222L;
 
     /**
