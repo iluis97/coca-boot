@@ -1,6 +1,5 @@
-package cn.luis.coca.boot.core.util;
+package cn.luis.coca.boot.core.service;
 
-import cn.luis.coca.boot.core.dto.response.ServiceResponse;
 
 public class ServiceExecutor {
 

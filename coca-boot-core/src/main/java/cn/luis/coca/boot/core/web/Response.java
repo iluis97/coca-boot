@@ -1,6 +1,7 @@
 package cn.luis.coca.boot.core.web;
 
 import cn.luis.coca.boot.core.enums.code.ResponseIEnum;
+import cn.luis.coca.boot.core.exception.BaseException;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
@@ -23,10 +24,12 @@ public class Response<T> implements Serializable {
     /**
      * 是否请求成功
      */
-    private final boolean success;
+    private final Boolean success;
 
     /**
      * 消息类型
+     *
+     * @see MessageTypeEnum
      */
     private final String messageType;
 
@@ -77,39 +80,47 @@ public class Response<T> implements Serializable {
         return new Response<>(true, MessageTypeEnum.SUCCESS, ResponseIEnum.OK, message, null);
     }
 
-    public static <T> Response<T> warn(T data, String errorMessage) {
-        return new Response<>(true, MessageTypeEnum.WARN, ResponseIEnum.OK, errorMessage, data);
+    public static <T> Response<T> warn(T data, String warnMessage) {
+        return new Response<>(true, MessageTypeEnum.WARN, ResponseIEnum.OK, warnMessage, data);
     }
 
-    public static Response<Void> warn(String errorMessage) {
-        return new Response<>(true, MessageTypeEnum.WARN, ResponseIEnum.OK, errorMessage, null);
+    public static Response<Void> warnMessage(String warnMessage) {
+        return new Response<>(true, MessageTypeEnum.WARN, ResponseIEnum.OK, warnMessage, null);
     }
 
     public static Response<Void> errorMessage(String errorMessage) {
         return new Response<>(false, MessageTypeEnum.ERROR, ResponseIEnum.FAIL, errorMessage, null);
     }
 
-    public static Response<Void> errorMessage(ResponseIEnum responseCodeDesc) {
+    public static Response<Void> error(ResponseIEnum responseCodeDesc) {
         return new Response<>(false, MessageTypeEnum.ERROR, responseCodeDesc, null);
+    }
+
+    public static Response<Void> error(BaseException baseException) {
+        return new Response<>(false, MessageTypeEnum.ERROR, baseException.getCode(), baseException.getDesc(), null);
+    }
+
+    public static Response<Void> error(RuntimeException runtimeException) {
+        return new Response<>(false, MessageTypeEnum.ERROR, ResponseIEnum.FAIL, runtimeException.getMessage(), null);
     }
 
     @Getter
     @AllArgsConstructor
     private enum MessageTypeEnum {
         /**
-         * 绿色
+         * 成功, 绿色
          */
         SUCCESS("success"),
         /**
-         * 黄色
+         * 警告, 黄色
          */
         WARN("warn"),
         /**
-         * 灰色
+         * 提示, 灰色
          */
         INFO("info"),
         /**
-         * 红色
+         * 异常, 红色
          */
         ERROR("error");
 

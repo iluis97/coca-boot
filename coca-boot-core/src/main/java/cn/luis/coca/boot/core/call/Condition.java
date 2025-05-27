@@ -1,4 +1,4 @@
-package cn.luis.coca.boot.core.service;
+package cn.luis.coca.boot.core.call;
 
 import java.io.Serializable;
 

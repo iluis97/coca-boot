@@ -1,4 +1,4 @@
-package cn.luis.coca.boot.core.util;
+package cn.luis.coca.boot.core.service;
 
 import lombok.Getter;
 import lombok.Setter;

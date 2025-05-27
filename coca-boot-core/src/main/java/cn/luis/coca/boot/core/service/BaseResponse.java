@@ -1,4 +1,4 @@
-package cn.luis.coca.boot.core.dto.response;
+package cn.luis.coca.boot.core.service;
 
 import lombok.Getter;
 

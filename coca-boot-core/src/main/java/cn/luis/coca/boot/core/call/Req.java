@@ -1,4 +1,4 @@
-package cn.luis.coca.boot.core.service;
+package cn.luis.coca.boot.core.call;
 
 import lombok.Getter;
 
@@ -11,17 +11,17 @@ import java.io.Serializable;
  * @since 2025/05/27 9:29
  */
 @Getter
-public class ServiceRequest implements Serializable {
+public class Req implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private final Condition condition;
 
-    public ServiceRequest() {
+    public Req() {
         this.condition = null;
 
     }
 
-    public ServiceRequest(Condition condition) {
+    public Req(Condition condition) {
         this.condition = condition;
     }
 }
