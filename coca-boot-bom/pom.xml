@@ -4,7 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>cn.luis.coca</groupId>
+    <parent>
+        <groupId>cn.luis.coca</groupId>
+        <artifactId>coca-boot-depend</artifactId>
+        <version>3.2.2</version>
+        <relativePath>../coca-boot-depend</relativePath>
+    </parent>
+
     <artifactId>coca-boot-bom</artifactId>
     <version>3.2.2</version>
 
@@ -22,11 +28,6 @@
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>cn.luis.coca</groupId>
-                <artifactId>coca-boot-depend</artifactId>
-                <version>${project.version}</version>
-            </dependency>
             <dependency>
                 <groupId>cn.luis.coca</groupId>
                 <artifactId>coca-boot-core</artifactId>
