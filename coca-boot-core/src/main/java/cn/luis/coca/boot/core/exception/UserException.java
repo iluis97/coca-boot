@@ -1,7 +1,7 @@
 package cn.luis.coca.boot.core.exception;
 
-import cn.luis.coca.boot.core.enums.AliErrorCodeDescIEnum;
-import cn.luis.coca.boot.core.enums.code.ResponseCodeDescIEnum;
+import cn.luis.coca.boot.core.enums.AliErrorIEnum;
+import cn.luis.coca.boot.core.enums.code.ResponseIEnum;
 
 /**
  * 用户异常
@@ -15,14 +15,14 @@ public class UserException extends BaseException {
     private static final long serialVersionUID = 7456374730637234141L;
 
     protected UserException(RuntimeException ex) {
-        super(AliErrorCodeDescIEnum.USER_ERROR_A0001, ex);
+        super(AliErrorIEnum.USER_ERROR_A0001, ex);
     }
 
-    protected UserException(ResponseCodeDescIEnum responseCodeDesc) {
+    protected UserException(ResponseIEnum responseCodeDesc) {
         super(responseCodeDesc);
     }
 
-    protected UserException(ResponseCodeDescIEnum responseCodeDesc, RuntimeException ex) {
+    protected UserException(ResponseIEnum responseCodeDesc, RuntimeException ex) {
         super(responseCodeDesc, ex);
     }
 }

@@ -7,7 +7,7 @@ package cn.luis.coca.boot.core.enums.code;
  * @since 1.0
  * 2022/10/6 21:55
  */
-public interface ResponseCodeDescIEnum extends CodeDescIEnum {
+public interface ResponseIEnum extends CodeDescIEnum {
     String OK = "200";
     String FAIL = "5000";
     String MESSAGE_OK = "操作成功";
@@ -17,8 +17,8 @@ public interface ResponseCodeDescIEnum extends CodeDescIEnum {
     String MESSAGE_FAIL = "系统执行出错";
 
 
-    static ResponseCodeDescIEnum respOk() {
-        return new ResponseCodeDescIEnum() {
+    static ResponseIEnum respOk() {
+        return new ResponseIEnum() {
             @Override
             public String getCode() {
                 return OK;
@@ -31,8 +31,8 @@ public interface ResponseCodeDescIEnum extends CodeDescIEnum {
         };
     }
 
-    static ResponseCodeDescIEnum respFail() {
-        return new ResponseCodeDescIEnum() {
+    static ResponseIEnum respFail() {
+        return new ResponseIEnum() {
             @Override
             public String getCode() {
                 return FAIL;

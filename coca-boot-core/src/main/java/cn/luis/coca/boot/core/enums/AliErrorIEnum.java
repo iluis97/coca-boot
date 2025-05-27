@@ -1,6 +1,6 @@
 package cn.luis.coca.boot.core.enums;
 
-import cn.luis.coca.boot.core.enums.code.ResponseCodeDescIEnum;
+import cn.luis.coca.boot.core.enums.code.ResponseIEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -13,12 +13,12 @@ import lombok.Getter;
  */
 @Getter
 @AllArgsConstructor
-public enum AliErrorCodeDescIEnum implements ResponseCodeDescIEnum {
+public enum AliErrorIEnum implements ResponseIEnum {
 
     /**
      * 成功
      */
-    SUCCESS(ResponseCodeDescIEnum.OK, ResponseCodeDescIEnum.MESSAGE_OK),
+    SUCCESS(ResponseIEnum.OK, ResponseIEnum.MESSAGE_OK),
     /**
      * 一级宏观错误码
      */

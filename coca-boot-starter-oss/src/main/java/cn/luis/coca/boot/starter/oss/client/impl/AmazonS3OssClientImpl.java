@@ -1,11 +1,15 @@
 package cn.luis.coca.boot.starter.oss.client.impl;
 
-import cn.luis.coca.boot.core.dto.FileDownDTO;
-import cn.luis.coca.boot.core.dto.FileUploadDTO;
 import cn.luis.coca.boot.core.enums.ContentTypeEnum;
 import cn.luis.coca.boot.starter.oss.client.OssClient;
+import cn.luis.coca.boot.starter.oss.domain.OssDownFile;
+import cn.luis.coca.boot.starter.oss.domain.OssUploadFile;
 import com.amazonaws.services.s3.AmazonS3;
-import com.amazonaws.services.s3.model.*;
+import com.amazonaws.services.s3.model.DeleteObjectsRequest;
+import com.amazonaws.services.s3.model.ObjectMetadata;
+import com.amazonaws.services.s3.model.PutObjectRequest;
+import com.amazonaws.services.s3.model.PutObjectResult;
+import com.amazonaws.services.s3.model.S3Object;
 import com.amazonaws.util.IOUtils;
 import lombok.RequiredArgsConstructor;
 
@@ -90,7 +94,7 @@ public class AmazonS3OssClientImpl implements OssClient {
     }
 
     @Override
-    public FileUploadDTO upload(String bucketName, String fileFolder, String fileName, InputStream stream) throws IOException {
+    public OssUploadFile upload(String bucketName, String fileFolder, String fileName, InputStream stream) throws IOException {
         ObjectMetadata objectMetadata = new ObjectMetadata();
         // 指示响应内容的格式
         objectMetadata.setContentType(ContentTypeEnum.DESSERT.getType());
@@ -100,16 +104,16 @@ public class AmazonS3OssClientImpl implements OssClient {
         // 存储
         amazonS3.putObject(putObjectRequest);
 
-        FileUploadDTO fileUploadDTO = new FileUploadDTO();
+        OssUploadFile ossUploadFile = new OssUploadFile();
         // 文件名非随机生成，默认0
-        fileUploadDTO.setId("0");
-        fileUploadDTO.setUrl(File.separator + fileFolder + fileName);
-        fileUploadDTO.setFileName(fileName);
-        return fileUploadDTO;
+        ossUploadFile.setId("0");
+        ossUploadFile.setUrl(File.separator + fileFolder + fileName);
+        ossUploadFile.setFileName(fileName);
+        return ossUploadFile;
     }
 
     @Override
-    public FileUploadDTO upload(String bucketName, String fileFolder, String fileName, InputStream stream, ObjectMetadata objectMetadata) throws IOException {
+    public OssUploadFile upload(String bucketName, String fileFolder, String fileName, InputStream stream, ObjectMetadata objectMetadata) throws IOException {
         objectMetadata.setContentLength(stream.available());
 
         PutObjectRequest putObjectRequest = new PutObjectRequest(bucketName, fileFolder.concat(fileName), stream, objectMetadata);
@@ -117,16 +121,16 @@ public class AmazonS3OssClientImpl implements OssClient {
         // 存储
         amazonS3.putObject(putObjectRequest);
 
-        FileUploadDTO fileUploadDTO = new FileUploadDTO();
+        OssUploadFile ossUploadFile = new OssUploadFile();
         // 文件名非随机生成，默认0
-        fileUploadDTO.setId("0");
-        fileUploadDTO.setUrl(File.pathSeparator + fileFolder + fileName);
-        fileUploadDTO.setFileName(fileName);
-        return fileUploadDTO;
+        ossUploadFile.setId("0");
+        ossUploadFile.setUrl(File.pathSeparator + fileFolder + fileName);
+        ossUploadFile.setFileName(fileName);
+        return ossUploadFile;
     }
 
     @Override
-    public FileDownDTO down(String bucketName, String fileKey) {
+    public OssDownFile down(String bucketName, String fileKey) {
         S3Object s3Object = amazonS3.getObject(bucketName, fileKey);
 
         byte[] file;
@@ -137,7 +141,7 @@ public class AmazonS3OssClientImpl implements OssClient {
         }
         Path path = Paths.get(fileKey);
         ObjectMetadata objectMetadata = s3Object.getObjectMetadata();
-        FileDownDTO.ObjectMetadata metadata = new FileDownDTO.ObjectMetadata(objectMetadata.getRawMetadata(), objectMetadata.getVersionId());
-        return new FileDownDTO(path.getFileName().toString(), file, metadata);
+        OssDownFile.ObjectMetadata metadata = new OssDownFile.ObjectMetadata(objectMetadata.getRawMetadata(), objectMetadata.getVersionId());
+        return new OssDownFile(path.getFileName().toString(), file, metadata);
     }
 }
