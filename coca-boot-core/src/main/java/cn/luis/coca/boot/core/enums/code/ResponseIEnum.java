@@ -8,41 +8,38 @@ package cn.luis.coca.boot.core.enums.code;
  * 2022/10/6 21:55
  */
 public interface ResponseIEnum extends CodeDescIEnum {
-    String OK = "200";
-    String FAIL = "5000";
-    String MESSAGE_OK = "操作成功";
-    /**
-     * 按理说不应该被使用哦,每个错误都应该有详尽说明！
-     */
-    String MESSAGE_FAIL = "系统执行出错";
-
-
-    static ResponseIEnum respOk() {
-        return new ResponseIEnum() {
-            @Override
-            public String getCode() {
-                return OK;
-            }
-
-            @Override
-            public String getDesc() {
-                return MESSAGE_OK;
-            }
-        };
+    static ResponseIEnum ok() {
+        return Response.ok;
     }
 
-    static ResponseIEnum respFail() {
-        return new ResponseIEnum() {
-            @Override
-            public String getCode() {
-                return FAIL;
-            }
+    static ResponseIEnum fail() {
+        return Response.fail;
+    }
 
-            @Override
-            public String getDesc() {
-                return MESSAGE_FAIL;
-            }
-        };
+    /**
+     * 内部实现枚举，仅限内部使用，外部只能通过接口访问
+     */
+    enum Response implements ResponseIEnum {
+        ok("200", "操作成功"),
+        fail("5000", "系统执行出错");
+
+        private final String code;
+        private final String desc;
+
+        Response(String code, String desc) {
+            this.code = code;
+            this.desc = desc;
+        }
+
+        @Override
+        public String getCode() {
+            return code;
+        }
+
+        @Override
+        public String getDesc() {
+            return desc;
+        }
     }
 
 }

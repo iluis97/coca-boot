@@ -13,6 +13,7 @@ import java.io.Serializable;
  */
 @Getter
 public class Resp<T> implements Serializable {
+
     private static final long serialVersionUID = 1L;
 
     /**
@@ -50,23 +51,23 @@ public class Resp<T> implements Serializable {
     }
 
     public static Resp<Void> success() {
-        return new Resp<>(Boolean.TRUE, ResponseIEnum.respOk(), null);
+        return new Resp<>(Boolean.TRUE, ResponseIEnum.ok(), null);
     }
 
     public static <T> Resp<T> success(T data) {
-        return new Resp<>(Boolean.TRUE, ResponseIEnum.respOk(), data);
+        return new Resp<>(Boolean.TRUE, ResponseIEnum.ok(), data);
     }
 
     public static <T> Resp<T> success(T data, String message) {
-        return new Resp<>(Boolean.TRUE, ResponseIEnum.respOk().getCode(), message, data);
+        return new Resp<>(Boolean.TRUE, ResponseIEnum.ok().getCode(), message, data);
     }
 
     public static <T> Resp<T> successMessage(String message) {
-        return new Resp<>(Boolean.TRUE, ResponseIEnum.OK, message, null);
+        return new Resp<>(Boolean.TRUE, ResponseIEnum.ok().getCode(), message, null);
     }
 
     public static Resp<Void> errorMessage(String errorMessage) {
-        return new Resp<>(Boolean.TRUE, ResponseIEnum.FAIL, errorMessage, null);
+        return new Resp<>(Boolean.TRUE, ResponseIEnum.fail().getCode(), errorMessage, null);
     }
 
     public static Resp<Void> errorMessage(ResponseIEnum responseCodeDesc) {

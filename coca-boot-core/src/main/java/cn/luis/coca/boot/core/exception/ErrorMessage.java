@@ -32,11 +32,11 @@ public final class ErrorMessage implements ResponseIEnum {
      * 虽然但是，不建议你使用 [用作系统默认错误提示]
      */
     public static ErrorMessage defaultError() {
-        return new ErrorMessage(FAIL, MESSAGE_FAIL);
+        return new ErrorMessage(ResponseIEnum.fail().getCode(), ResponseIEnum.fail().getDesc());
     }
 
     public static ErrorMessage errorOfMessage(String errorMessage) {
-        return new ErrorMessage(FAIL, errorMessage);
+        return new ErrorMessage(ResponseIEnum.fail().getCode(), errorMessage);
     }
 
     @Override

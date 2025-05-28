@@ -12,13 +12,13 @@ import java.io.Serializable;
  */
 @Getter
 public class Req implements Serializable {
+
     private static final long serialVersionUID = 1L;
 
     private final Condition condition;
 
     public Req() {
         this.condition = null;
-
     }
 
     public Req(Condition condition) {

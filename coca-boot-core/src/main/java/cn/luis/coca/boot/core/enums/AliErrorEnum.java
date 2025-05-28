@@ -13,12 +13,12 @@ import lombok.Getter;
  */
 @Getter
 @AllArgsConstructor
-public enum AliErrorIEnum implements ResponseIEnum {
+public enum AliErrorEnum implements ResponseIEnum {
 
     /**
      * 成功
      */
-    SUCCESS(ResponseIEnum.OK, ResponseIEnum.MESSAGE_OK),
+    SUCCESS(ResponseIEnum.ok().getCode(), ResponseIEnum.ok().getDesc()),
     /**
      * 一级宏观错误码
      */

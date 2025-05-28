@@ -11,16 +11,11 @@ import lombok.Getter;
  * created 2022/2/17 9:35
  */
 @Getter
-public abstract class BaseException extends RuntimeException implements ResponseIEnum {
+public abstract class BaseException extends RuntimeException {
 
     private static final long serialVersionUID = -6462976541406465434L;
 
     protected final ResponseIEnum responseCodeDesc;
-
-    protected BaseException(RuntimeException ex) {
-        super(ex.getMessage(), ex);
-        this.responseCodeDesc = ResponseIEnum.respFail();
-    }
 
     protected BaseException(ResponseIEnum responseCodeDesc) {
         super(responseCodeDesc.getDesc());
@@ -32,12 +27,20 @@ public abstract class BaseException extends RuntimeException implements Response
         this.responseCodeDesc = responseCodeDesc;
     }
 
-    @Override
+    protected BaseException(String message, ResponseIEnum responseCodeDesc) {
+        super(message);
+        this.responseCodeDesc = responseCodeDesc;
+    }
+
+    public BaseException(String message, ResponseIEnum responseCodeDesc, Throwable cause) {
+        super(message, cause);
+        this.responseCodeDesc = responseCodeDesc;
+    }
+
     public String getCode() {
         return this.responseCodeDesc.getCode();
     }
 
-    @Override
     public String getDesc() {
         return this.responseCodeDesc.getDesc();
     }

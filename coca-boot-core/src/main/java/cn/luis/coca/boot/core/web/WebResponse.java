@@ -65,31 +65,31 @@ public class WebResponse<T> implements Serializable {
     }
 
     public static WebResponse<Void> success() {
-        return new WebResponse<>(true, MessageTypeEnum.SUCCESS, ResponseIEnum.respOk(), null);
+        return new WebResponse<>(true, MessageTypeEnum.SUCCESS, ResponseIEnum.ok(), null);
     }
 
     public static <T> WebResponse<T> success(T data) {
-        return new WebResponse<>(true, MessageTypeEnum.SUCCESS, ResponseIEnum.respOk(), data);
+        return new WebResponse<>(true, MessageTypeEnum.SUCCESS, ResponseIEnum.ok(), data);
     }
 
     public static <T> WebResponse<T> success(T data, String message) {
-        return new WebResponse<>(true, MessageTypeEnum.SUCCESS, ResponseIEnum.OK, message, data);
+        return new WebResponse<>(true, MessageTypeEnum.SUCCESS, ResponseIEnum.ok().getCode(), message, data);
     }
 
     public static WebResponse<Void> successMessage(String message) {
-        return new WebResponse<>(true, MessageTypeEnum.SUCCESS, ResponseIEnum.OK, message, null);
+        return new WebResponse<>(true, MessageTypeEnum.SUCCESS, ResponseIEnum.ok().getCode(), message, null);
     }
 
     public static <T> WebResponse<T> warn(T data, String warnMessage) {
-        return new WebResponse<>(true, MessageTypeEnum.WARN, ResponseIEnum.OK, warnMessage, data);
+        return new WebResponse<>(true, MessageTypeEnum.WARN, ResponseIEnum.ok().getCode(), warnMessage, data);
     }
 
     public static WebResponse<Void> warnMessage(String warnMessage) {
-        return new WebResponse<>(true, MessageTypeEnum.WARN, ResponseIEnum.OK, warnMessage, null);
+        return new WebResponse<>(true, MessageTypeEnum.WARN, ResponseIEnum.ok().getCode(), warnMessage, null);
     }
 
     public static WebResponse<Void> errorMessage(String errorMessage) {
-        return new WebResponse<>(false, MessageTypeEnum.ERROR, ResponseIEnum.FAIL, errorMessage, null);
+        return new WebResponse<>(false, MessageTypeEnum.ERROR, ResponseIEnum.fail().getCode(), errorMessage, null);
     }
 
     public static WebResponse<Void> error(ResponseIEnum responseCodeDesc) {
@@ -101,7 +101,7 @@ public class WebResponse<T> implements Serializable {
     }
 
     public static WebResponse<Void> error(RuntimeException runtimeException) {
-        return new WebResponse<>(false, MessageTypeEnum.ERROR, ResponseIEnum.FAIL, runtimeException.getMessage(), null);
+        return new WebResponse<>(false, MessageTypeEnum.ERROR, ResponseIEnum.fail().getCode(), runtimeException.getMessage(), null);
     }
 
     public static WebResponse<Void> ofState(Boolean state, String errorMessage) {

@@ -22,8 +22,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <dubbo-serialization-kryo.version>2.7.23</dubbo-serialization-kryo.version>
-        <kryo.version>4.0.2</kryo.version>
+        <!--<dubbo-serialization-kryo.version>2.7.23</dubbo-serialization-kryo.version>
+        <kryo.version>4.0.2</kryo.version>-->
     </properties>
 
     <!--报错: org.apache.dubbo.common.Version:  [DUBBO] Duplicate class org/apache/dubbo-->
@@ -68,7 +68,7 @@
             <version>4.1.4</version>
         </dependency>
         <!--Dubbo 序列化 https://cn.dubbo.apache.org/zh-cn/overview/mannual/java-sdk/reference-manual/serialization/kryo/ -->
-        <dependency>
+        <!--<dependency>
             <groupId>org.apache.dubbo</groupId>
             <artifactId>dubbo-serialization-kryo</artifactId>
             <version>${dubbo-serialization-kryo.version}</version>
@@ -87,7 +87,7 @@
             <groupId>com.esotericsoftware</groupId>
             <artifactId>kryo</artifactId>
             <version>${kryo.version}</version>
-        </dependency>
+        </dependency>-->
     </dependencies>
 
 </project>
