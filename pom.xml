@@ -4,15 +4,21 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>cn.luis.coca</groupId>
+    <parent>
+        <groupId>cn.luis.coca</groupId>
+        <artifactId>coca-boot-dependencies</artifactId>
+        <version>3.2.2</version>
+        <relativePath>coca-boot-dependencies/pom.xml</relativePath>
+    </parent>
+
     <artifactId>coca-boot</artifactId>
+    <!--可按照自己的节奏迭代-->
     <version>3.2.2</version>
 
     <packaging>pom</packaging>
 
     <modules>
-        <module>coca-boot-bom</module>
-        <module>coca-boot-depend</module>
+        <module>coca-boot-dependencies</module>
         <module>coca-boot-core</module>
         <module>coca-boot-jackson</module>
         <module>coca-boot-log</module>
@@ -20,7 +26,6 @@
         <module>coca-boot-starter-dubbo-nacos</module>
         <module>coca-boot-starter-oss</module>
         <module>coca-boot-starter-data-db</module>
-        <module>coca-boot-spring-extend</module>
     </modules>
 
     <properties>
@@ -35,10 +40,38 @@
         <dependencies>
             <dependency>
                 <groupId>cn.luis.coca</groupId>
-                <artifactId>coca-boot-bom</artifactId>
-                <version>3.2.2</version>
-                <type>pom</type>
-                <scope>import</scope>
+                <artifactId>coca-boot-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.luis.coca</groupId>
+                <artifactId>coca-boot-jackson</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.luis.coca</groupId>
+                <artifactId>coca-boot-log</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.luis.coca</groupId>
+                <artifactId>coca-boot-util</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.luis.coca</groupId>
+                <artifactId>coca-boot-starter-dubbo-nacos</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.luis.coca</groupId>
+                <artifactId>coca-boot-starter-oss</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.luis.coca</groupId>
+                <artifactId>coca-boot-starter-data-db</artifactId>
+                <version>${project.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -52,7 +85,6 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <scope>test</scope>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>

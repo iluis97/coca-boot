@@ -60,23 +60,23 @@ public abstract class AbstractServiceTemplate<T> {
     /**
      * 执行异常处理
      */
-    public void doWhenException(){
+    public void doWhenException() {
         return;
     }
 
     /**
      * 执行最终异常处理
      */
-    public void doWhenFinallyException(){
+    public void doWhenFinallyException() {
         return;
     }
 
-    public void markSuccess(T data){
+    public void markSuccess(T data) {
         this.success = Boolean.TRUE;
         this.data = data;
     }
 
-    public void markFail(Exception failException){
+    public void markFail(Exception failException) {
         this.success = Boolean.FALSE;
         this.exception = failException;
     }

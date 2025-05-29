@@ -1,7 +1,7 @@
 package cn.luis.coca.boot.core.dto.util;
 
- import cn.luis.coca.boot.core.service.ServiceResponse;
- import org.junit.jupiter.api.Assertions;
+import cn.luis.coca.boot.core.service.ServiceResponse;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class ServiceExecutorTest {

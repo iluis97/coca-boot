@@ -12,8 +12,7 @@
     </parent>
 
     <groupId>cn.luis.coca</groupId>
-    <artifactId>coca-boot-depend</artifactId>
-    <version>3.2.2</version>
+    <artifactId>coca-boot-dependencies</artifactId>
 
     <packaging>pom</packaging>
 
@@ -22,9 +21,11 @@
     <url>https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E</url>
 
     <properties>
+        <coca.root.version>3.2.2</coca.root.version>
+
         <java.version>21</java.version>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
@@ -162,8 +163,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.11.0</version>
                 <configuration>
-                    <source>21</source>
-                    <target>21</target>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                     <annotationProcessorPaths>
                         <path>
                             <groupId>org.projectlombok</groupId>

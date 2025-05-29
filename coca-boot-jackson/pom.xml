@@ -15,14 +15,6 @@
 
     <packaging>jar</packaging>
 
-    <properties>
-        <java.version>21</java.version>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    </properties>
-
     <dependencies>
         <!--jackson-databind 内部依赖 jackson-core 和 jackson-annotations-->
         <!--Jackson 的通用数据绑定功能：用于Java对象和JSON数据之间的相互转换-->
