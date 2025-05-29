@@ -8,7 +8,7 @@ public class HomeService {
 
 
     public ServiceResponse<Boolean> isSafe(int doorNumber) {
-        return ServiceExecutor.execute(new AbstractServiceTemplate<>() {
+        return ServiceExecutor.execute(new AbstractServiceTemplate<Boolean>() {
             @Override
             public void doCheck() {
                 if (doorNumber > 3) {

@@ -4,7 +4,7 @@ import cn.luis.coca.boot.starter.data.db.entity.DbEntity;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
+import java.util.Collections;
 import java.util.function.Supplier;
 
 public class PageWrapperTest {
@@ -30,7 +30,7 @@ public class PageWrapperTest {
     public void testResult() {
         PageWrapper<TestDbEntity> pageWrapper = PageWrapper.firstPage(testDbEntity, PageWrapper.DEFAULT_SIZE);
 
-        PageWrapper<TestDbEntity> pw = PageWrapper.result(pageWrapper, 1, List.of(testDbEntity));
+        PageWrapper<TestDbEntity> pw = PageWrapper.result(pageWrapper, 1, Collections.singletonList(testDbEntity));
         Assertions.assertNotNull(pw);
     }
 
