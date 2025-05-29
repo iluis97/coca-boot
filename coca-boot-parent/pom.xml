@@ -18,9 +18,6 @@
     <packaging>pom</packaging>
 
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
         <!--与主pom版本号一致-->
         <coca-children-version>2.6.13</coca-children-version>
     </properties>
