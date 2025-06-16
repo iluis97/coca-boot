@@ -64,7 +64,7 @@ public class WebResponse<T> implements Serializable {
         this.data = data;
     }
 
-    public static WebResponse<Void> success() {
+    public static <T> WebResponse<T> success() {
         return new WebResponse<>(true, MessageTypeEnum.SUCCESS, ResponseIEnum.ok(), null);
     }
 
@@ -76,7 +76,7 @@ public class WebResponse<T> implements Serializable {
         return new WebResponse<>(true, MessageTypeEnum.SUCCESS, ResponseIEnum.ok().getCode(), message, data);
     }
 
-    public static WebResponse<Void> successMessage(String message) {
+    public static <T> WebResponse<T> successMessage(String message) {
         return new WebResponse<>(true, MessageTypeEnum.SUCCESS, ResponseIEnum.ok().getCode(), message, null);
     }
 
@@ -84,31 +84,31 @@ public class WebResponse<T> implements Serializable {
         return new WebResponse<>(true, MessageTypeEnum.WARN, ResponseIEnum.ok().getCode(), warnMessage, data);
     }
 
-    public static WebResponse<Void> warnMessage(String warnMessage) {
+    public static <T> WebResponse<T> warnMessage(String warnMessage) {
         return new WebResponse<>(true, MessageTypeEnum.WARN, ResponseIEnum.ok().getCode(), warnMessage, null);
     }
 
-    public static WebResponse<Void> errorMessage(String errorMessage) {
+    public static <T> WebResponse<T> errorMessage(String errorMessage) {
         return new WebResponse<>(false, MessageTypeEnum.ERROR, ResponseIEnum.fail().getCode(), errorMessage, null);
     }
 
-    public static WebResponse<Void> error(ResponseIEnum responseCodeDesc) {
+    public static <T> WebResponse<T> error(ResponseIEnum responseCodeDesc) {
         return new WebResponse<>(false, MessageTypeEnum.ERROR, responseCodeDesc, null);
     }
 
-    public static WebResponse<Void> error(BaseException baseException) {
+    public static <T> WebResponse<T> error(BaseException baseException) {
         return new WebResponse<>(false, MessageTypeEnum.ERROR, baseException.getCode(), baseException.getDesc(), null);
     }
 
-    public static WebResponse<Void> error(RuntimeException runtimeException) {
+    public static <T> WebResponse<T> error(RuntimeException runtimeException) {
         return new WebResponse<>(false, MessageTypeEnum.ERROR, ResponseIEnum.fail().getCode(), runtimeException.getMessage(), null);
     }
 
-    public static WebResponse<Void> ofState(Boolean state, String errorMessage) {
+    public static <T> WebResponse<T> ofState(Boolean state, String errorMessage) {
         return state ? success() : errorMessage(errorMessage);
     }
 
-    public static WebResponse<Void> ofState(Boolean state, String errorMessage, String successMessage) {
+    public static <T> WebResponse<T> ofState(Boolean state, String errorMessage, String successMessage) {
         return state ? successMessage(successMessage) : errorMessage(errorMessage);
     }
 

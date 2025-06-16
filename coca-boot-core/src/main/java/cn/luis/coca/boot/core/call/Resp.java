@@ -50,7 +50,7 @@ public class Resp<T> implements Serializable {
         this.data = data;
     }
 
-    public static Resp<Void> success() {
+    public static <T> Resp<T> success() {
         return new Resp<>(Boolean.TRUE, ResponseIEnum.ok(), null);
     }
 
@@ -66,11 +66,11 @@ public class Resp<T> implements Serializable {
         return new Resp<>(Boolean.TRUE, ResponseIEnum.ok().getCode(), message, null);
     }
 
-    public static Resp<Void> errorMessage(String errorMessage) {
+    public static <T> Resp<T> errorMessage(String errorMessage) {
         return new Resp<>(Boolean.TRUE, ResponseIEnum.fail().getCode(), errorMessage, null);
     }
 
-    public static Resp<Void> errorMessage(ResponseIEnum responseCodeDesc) {
+    public static <T> Resp<T> errorMessage(ResponseIEnum responseCodeDesc) {
         return new Resp<>(Boolean.TRUE, responseCodeDesc, null);
     }
 }
