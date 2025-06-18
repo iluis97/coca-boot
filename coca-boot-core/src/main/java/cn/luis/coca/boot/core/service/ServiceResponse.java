@@ -2,7 +2,6 @@ package cn.luis.coca.boot.core.service;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.extern.slf4j.Slf4j;
 
 import java.io.Serializable;
 import java.util.Optional;
