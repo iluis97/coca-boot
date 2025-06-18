@@ -5,7 +5,7 @@ import cn.luis.coca.boot.starter.data.db.entity.DbEntity;
 import java.util.Optional;
 import java.util.function.Function;
 
-public abstract class QueryWrapper {
+public interface QueryWrapper {
 
     /**
      * 构建查询条件

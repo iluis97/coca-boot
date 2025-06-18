@@ -2,14 +2,34 @@ package cn.luis.coca.boot.core.service;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
+import java.io.Serializable;
 import java.util.Optional;
 
 @Getter
 @Setter
-public class ServiceResponse<T> extends BaseResponse<T> {
+public class ServiceResponse<T> implements Serializable {
 
-    protected Exception exception;
+    /**
+     * 消息类型
+     */
+    protected Boolean success;
+
+    /**
+     * 消息详情
+     */
+    protected String desc;
+
+    /**
+     * 返回的数据
+     */
+    protected T data;
+
+    /**
+     * 异常
+     */
+    protected Throwable throwable;
 
     private ServiceResponse(Boolean success, T data) {
         this.success = success;
@@ -21,12 +41,11 @@ public class ServiceResponse<T> extends BaseResponse<T> {
         this.desc = errorMessage;
     }
 
-    private ServiceResponse(Exception exception) {
+    private ServiceResponse(Throwable throwable) {
         this.success = false;
-        this.desc = Optional.ofNullable(exception).map(Exception::getMessage).orElse("系统异常");
-        this.exception = exception;
+        this.desc = Optional.ofNullable(throwable).map(Throwable::getMessage).orElse("服务调用异常");
+        this.throwable = throwable;
     }
-
 
     public static <T> ServiceResponse<T> success(T data) {
         return new ServiceResponse<>(true, data);
@@ -36,8 +55,8 @@ public class ServiceResponse<T> extends BaseResponse<T> {
         return new ServiceResponse<>(errorMessage);
     }
 
-    public static <T> ServiceResponse<T> failException(Exception failException) {
-        return new ServiceResponse<>(failException);
+    public static <T> ServiceResponse<T> failException(Throwable throwable) {
+        return new ServiceResponse<>(throwable);
     }
 
 

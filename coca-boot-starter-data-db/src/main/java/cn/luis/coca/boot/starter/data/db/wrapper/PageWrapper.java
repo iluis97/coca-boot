@@ -17,7 +17,7 @@ import java.util.function.Supplier;
 @Getter
 @Setter
 @ToString
-public final class PageWrapper<T extends DbEntity> extends QueryWrapper {
+public final class PageWrapper<T extends DbEntity> implements QueryWrapper {
 
     /**
      * 默认当前页码
